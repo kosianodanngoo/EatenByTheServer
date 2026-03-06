@@ -78,21 +78,23 @@ public class SystemInterface extends Monster implements IHostileServerSrave {
 
     @Override
     public void tick() {
-        if (this.isAlive() && !this.level().isClientSide() && this.hostileServer != null && --attackCooltime <= 0) {
-            Vec3 position = this.position();
-            for (Player player : this.level().getEntitiesOfClass(Player.class, AABB.ofSize(position, 100, 100, 100))) {
-                if (this.hostileServer.ignorePredicate.test(player)) {
-                    continue;
+        if (!this.level().isClientSide()) {
+            if (this.isAlive() && this.hostileServer != null && --attackCooltime <= 0) {
+                Vec3 position = this.position();
+                for (Player player : this.level().getEntitiesOfClass(Player.class, AABB.ofSize(position, 100, 100, 100))) {
+                    if (this.hostileServer.ignorePredicate.test(player)) {
+                        continue;
+                    }
+                    DisconnectionSweep disconnectionSweep = new DisconnectionSweep(this.hostileServer);
+                    Vec3 randomizedPosition = position.offsetRandom(this.random, 6);
+                    disconnectionSweep.setPos(randomizedPosition);
+                    disconnectionSweep.setDelta(player.position().subtract(randomizedPosition).normalize());
+                    this.hostileServer.addProjectile(disconnectionSweep);
                 }
-                DisconnectionSweep disconnectionSweep = new DisconnectionSweep(this.hostileServer);
-                Vec3 randomizedPosition = position.offsetRandom(this.random, 6);
-                disconnectionSweep.setPos(randomizedPosition);
-                disconnectionSweep.setDelta(player.position().subtract(randomizedPosition).normalize());
-                this.hostileServer.addProjectile(disconnectionSweep);
+                attackCooltime = 5;
+            } else if (hostileServer == null || hostileServer.systemInterface != this) {
+                this.discard();
             }
-            attackCooltime = 5;
-        } else if (hostileServer == null || hostileServer.systemInterface != this) {
-            this.discard();
         }
         super.tick();
     }
