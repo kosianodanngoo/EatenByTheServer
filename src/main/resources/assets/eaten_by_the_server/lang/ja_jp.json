@@ -5,6 +5,17 @@
   "boss.eaten_by_the_server.eaten_by_the_server.disconnect": "あなたの接続はナイフで切られた。",
   "boss.eaten_by_the_server.eaten_by_the_server.disconnect.player": "%sの接続はナイフで切られた。",
 
+
+  "commands.eaten_by_the_server.hostile_server.no_hostile_server": "%sに敵性サーバーは居ません",
+
+  "commands.eaten_by_the_server.hostile_server.hp.set.success": "%sの敵性サーバーの体力を%sにしました",
+  "commands.eaten_by_the_server.hostile_server.hp.get.success": "%sの敵性サーバーの体力: %s",
+  "commands.eaten_by_the_server.hostile_server.eaten_count.set.success": "%sの敵性サーバーの食べられた回数を%sにしました",
+  "commands.eaten_by_the_server.hostile_server.eaten_count.get.success": "%sの敵性サーバーの食べられた回数: %s",
+  "commands.eaten_by_the_server.hostile_server.hostile.set.success": "%sの敵性サーバーの敵対状態を%sにしました",
+  "commands.eaten_by_the_server.hostile_server.hostile.get.success": "%sの敵性サーバーの敵対状態: %s.",
+
+
   "death.attack.eaten_by_the_server.eating": "%sはサーバーに食べられた。",
   "death.attack.eaten_by_the_server.eating.player": "%sは%sと戦っている間にサーバーに食べられた。",
   "death.attack.eaten_by_the_server.eating.item": "%sは%sと戦っている間にサーバーに食べられた。",

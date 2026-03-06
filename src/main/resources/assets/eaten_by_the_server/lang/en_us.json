@@ -5,6 +5,17 @@
   "boss.eaten_by_the_server.eaten_by_the_server.disconnect": "your connection was cut off with the knife.",
   "boss.eaten_by_the_server.eaten_by_the_server.disconnect.player": "%s's connection was cut off with the knife.",
 
+
+  "commands.eaten_by_the_server.hostile_server.no_hostile_server": "There is No Hostile Server in %s",
+
+  "commands.eaten_by_the_server.hostile_server.hp.set.success": "Set HP of Hostile Server in %s to %s.",
+  "commands.eaten_by_the_server.hostile_server.hp.get.success": "HP of Hostile Server in %s: %s.",
+  "commands.eaten_by_the_server.hostile_server.eaten_count.set.success": "Set Eaten Count of Hostile Server in %s to %s.",
+  "commands.eaten_by_the_server.hostile_server.eaten_count.get.success": "Eaten Count of Hostile Server in %s: %s.",
+  "commands.eaten_by_the_server.hostile_server.hostile.set.success": "Set Hostility of Hostile Server in %s to %s.",
+  "commands.eaten_by_the_server.hostile_server.hostile.get.success": "Hostility of Hostile Server in %s: %s.",
+
+
   "death.attack.eaten_by_the_server.eating": "%s was eaten by the server.",
   "death.attack.eaten_by_the_server.eating.player": "%s was eaten by the server while fighting %s.",
   "death.attack.eaten_by_the_server.eating.item": "%s was eaten by the server while fighting %s.",

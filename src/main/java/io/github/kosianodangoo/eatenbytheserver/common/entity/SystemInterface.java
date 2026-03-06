@@ -74,6 +74,7 @@ public class SystemInterface extends Monster implements IHostileServerSrave {
                 hostileServer.damage(1);
             hostileServer.systemInterface = null;
         }
+        this.hostileServer = null;
     }
 
     @Override
@@ -92,7 +93,7 @@ public class SystemInterface extends Monster implements IHostileServerSrave {
                     this.hostileServer.addProjectile(disconnectionSweep);
                 }
                 attackCooltime = 5;
-            } else if (hostileServer == null || hostileServer.systemInterface != this) {
+            } else if (hostileServer == null || hostileServer.systemInterface != this || hostileServer.removed) {
                 this.discard();
             }
         }

@@ -52,7 +52,7 @@ public class HostileServerSavedData extends SavedData {
         if (hostileServer == null) {
             return;
         }
-        this.hostileServer.eatenCount = compoundTag.getInt(EATEN_COUNT_TAG);
+        this.hostileServer.setEatenCount(compoundTag.getInt(EATEN_COUNT_TAG));
         this.hostileServer.setHostile(compoundTag.getBoolean(HOSTILE_TAG));
         this.hostileServer.setHp(compoundTag.getFloat(HP_TAG));
     }

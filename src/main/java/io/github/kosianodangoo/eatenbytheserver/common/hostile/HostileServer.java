@@ -43,6 +43,7 @@ public class HostileServer {
     public boolean shouldEatCreative = Config.SHOULD_EAT_CREATIVE.get();
     public Level level;
     public boolean dead = false;
+    public boolean removed = false;
     public int deathTick = 0;
     public float maxHp = 100;
     public float hp = maxHp;
@@ -74,6 +75,8 @@ public class HostileServer {
             }
             skills = WeightedRandomList.create(new DisconnectionSweepSkill(), new BurningSkill());
         }
+        this.setHp(this.getMaxHp());
+        this.dead = false;
         HostileServerHandler.addTickingHostileServer(this.level, this);
     }
 
@@ -112,15 +115,22 @@ public class HostileServer {
     }
 
     public void handleEatTheServer() {
-        eatenCount++;
-        if (eatenCount >= 10) {
-            this.setHostile(true);
-            onChanged();
-        }
+        setEatenCount(eatenCount+1);
     }
 
     public int getEatenCount() {
         return this.eatenCount;
+    }
+
+    public void setEatenCount(int eatenCount) {
+        if (eatenCount == this.eatenCount) {
+            return;
+        }
+        this.eatenCount = eatenCount;
+        onChanged();
+        if (eatenCount >= 10) {
+            this.setHostile(true);
+        }
     }
 
     public boolean isHostile() {
@@ -139,6 +149,7 @@ public class HostileServer {
         projectilesToRemove.clear();
         projectiles.clear();
         skills = null;
+        this.removed = true;
         onChanged();
         HostileServerHandler.removeHostileServer(this.level);
     }
