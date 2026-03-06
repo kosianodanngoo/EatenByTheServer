@@ -93,10 +93,14 @@ public class HostileServer {
     }
 
     public void setHp(float hp) {
+        if (this.hp == hp) {
+            return;
+        }
         this.hp = hp;
         if (hp <= 0) {
             this.dead = true;
         }
+        this.onChanged();
     }
 
     public float getMaxHp() {
