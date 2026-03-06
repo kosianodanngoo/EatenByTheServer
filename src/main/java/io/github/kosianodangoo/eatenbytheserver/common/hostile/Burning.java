@@ -29,10 +29,7 @@ public class Burning extends ServerProjectile {
             }
             serverLevel.playSound(null, BlockPos.containing(pos), SoundEvents.FIRE_EXTINGUISH, SoundSource.HOSTILE, 0.2f, 0);
             this.serverLevel.sendParticles(ParticleTypes.FLAME, this.pos.x, this.pos.y, this.pos.z, 50, 0.5, 0.5, 0.5, 0.5);
-            this.serverLevel.getEntities(EntityTypeTest.forClass(LivingEntity.class), AABB.ofSize(pos, 4, 4, 4), (livingEntity) -> true).forEach((livingEntity -> {
-                if (hostileServer.ignorePredicate.test(livingEntity)) {
-                    return;
-                }
+            this.serverLevel.getEntities(EntityTypeTest.forClass(LivingEntity.class), AABB.ofSize(pos, 4, 4, 4), (livingEntity) -> !hostileServer.ignorePredicate.test(livingEntity)).forEach((livingEntity -> {
                 float oldHealth = livingEntity.getHealth();
                 livingEntity.setHealth(oldHealth - livingEntity.getMaxHealth() / 20);
                 if (oldHealth > 0 && livingEntity.getHealth() <= 0) {

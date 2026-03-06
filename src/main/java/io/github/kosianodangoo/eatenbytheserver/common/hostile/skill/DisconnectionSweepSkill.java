@@ -13,10 +13,7 @@ public class DisconnectionSweepSkill extends AbstractSkill {
     public void activate(HostileServer hostileServer) {
         if (hostileServer.level instanceof ServerLevel serverLevel) {
             RandomSource randomSource = serverLevel.random;
-            serverLevel.getPlayers(serverPlayer -> true).forEach(serverPlayer -> {
-                if (hostileServer.ignorePredicate.test(serverPlayer)) {
-                    return;
-                }
+            serverLevel.getPlayers(serverPlayer -> !hostileServer.ignorePredicate.test(serverPlayer)).forEach(serverPlayer -> {
                 DisconnectionSweep disconnectionSweep = new DisconnectionSweep(hostileServer);
                 disconnectionSweep.setDelta(Vec3.directionFromRotation(randomSource.nextFloat() * 180 - 90, randomSource.nextFloat() * 360));
                 disconnectionSweep.setPos(serverPlayer.position().add(disconnectionSweep.delta.scale(-40)));

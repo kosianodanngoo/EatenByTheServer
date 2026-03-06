@@ -34,10 +34,7 @@ public class DisconnectionSweep extends ServerProjectile {
         if (this.serverLevel != null) {
             serverLevel.playSound(null, BlockPos.containing(pos), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.HOSTILE, 0.25f, 1);
             this.serverLevel.sendParticles(ParticleTypes.SWEEP_ATTACK, this.pos.x, this.pos.y, this.pos.z, 2, 0.5, 0.5, 0.5, 0);
-            this.serverLevel.getEntities(EntityTypeTest.forClass(ServerPlayer.class), AABB.ofSize(pos, 1.5f, 1.5f, 1.5f), (entity) -> true).forEach((serverPlayer -> {
-                if (this.hostileServer.ignorePredicate.test(serverPlayer) || serverPlayer.hasDisconnected()) {
-                    return;
-                }
+            this.serverLevel.getEntities(EntityTypeTest.forClass(ServerPlayer.class), AABB.ofSize(pos, 1.5f, 1.5f, 1.5f), (serverPlayer) -> !this.hostileServer.ignorePredicate.test(serverPlayer) && !serverPlayer.hasDisconnected()).forEach((serverPlayer -> {
                 Component message = Component.translatable("boss.eaten_by_the_server.eaten_by_the_server.disconnect.player", serverPlayer.getDisplayName());
                 serverPlayer.connection.disconnect(DISCONNECTION_MESSAGE);
                 serverLevel.getServer().getPlayerList().broadcastSystemMessage(message, false);
