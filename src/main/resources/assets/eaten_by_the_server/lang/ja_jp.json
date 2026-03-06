@@ -1,12 +1,16 @@
 {
   "boss.eaten_by_the_server.eaten_by_the_server": "サーバー\"が\"食べよう！！！！１！！１！！！！！！１！",
   "boss.eaten_by_the_server.eat_the_server": "サーバーを食べよう！！！！１！！１！！！！！！１！",
+
   "boss.eaten_by_the_server.eaten_by_the_server.disconnect": "あなたの接続はナイフで切られた。",
   "boss.eaten_by_the_server.eaten_by_the_server.disconnect.player": "%sの接続はナイフで切られた。",
+
   "death.attack.eaten_by_the_server.eating": "%sはサーバーに食べられた。",
   "death.attack.eaten_by_the_server.eating.player": "%sは%sと戦っている間にサーバーに食べられた。",
   "death.attack.eaten_by_the_server.eating.item": "%sは%sと戦っている間にサーバーに食べられた。",
+
   "itemGroup.tab.eaten_by_the_server": "サーバーが食べよう",
+
   "item.eaten_by_the_server.edible_server": "食用サーバー",
   "item.eaten_by_the_server.edible_server.access_denied": "試行%s: [アクセスが拒否されました] -> %s"
 }
