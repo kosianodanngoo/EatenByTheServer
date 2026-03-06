@@ -227,7 +227,7 @@ public class HostileServer {
                     cooltime = skill.getCoolTime();
                 });
             }
-            if (systemInterface == null) {
+            if (systemInterface == null || systemInterface.isRemoved()) {
                 ServerPlayer serverPlayer = serverLevel.getRandomPlayer();
                 if (serverPlayer != null) {
                     SystemInterface systemInterface = new SystemInterface(EBTSEntities.SYSTEM_INTERFACE.get(), serverLevel);
