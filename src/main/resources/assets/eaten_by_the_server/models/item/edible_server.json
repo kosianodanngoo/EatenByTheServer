@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eaten_by_the_server:item/edible_server"
+  }
+}

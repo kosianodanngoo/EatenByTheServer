@@ -1,0 +1,12 @@
+{
+  "boss.eaten_by_the_server.eaten_by_the_server": "GET EATEN BY THE SERVER!!!!!!!",
+  "boss.eaten_by_the_server.eat_the_server": "LET'S EAT THE SERVER!!!!!!!",
+  "boss.eaten_by_the_server.eaten_by_the_server.disconnect": "your connection was cut off with the knife.",
+  "boss.eaten_by_the_server.eaten_by_the_server.disconnect.player": "%s's connection was cut off with the knife.",
+  "death.attack.eaten_by_the_server.eating": "%s was eaten by the server.",
+  "death.attack.eaten_by_the_server.eating.player": "%s was eaten by the server while fighting %s.",
+  "death.attack.eaten_by_the_server.eating.item": "%s was eaten by the server while fighting %s.",
+  "itemGroup.tab.eaten_by_the_server": "Eaten By The Server",
+  "item.eaten_by_the_server.edible_server": "Edible Server",
+  "item.eaten_by_the_server.edible_server.access_denied": "Attempt %s : [Access Denied] -> %s"
+}
