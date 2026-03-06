@@ -9,6 +9,8 @@
   "death.attack.eaten_by_the_server.eating.player": "%s was eaten by the server while fighting %s.",
   "death.attack.eaten_by_the_server.eating.item": "%s was eaten by the server while fighting %s.",
 
+  "entity.eaten_by_the_server.system_interface": "System Interface",
+
   "itemGroup.tab.eaten_by_the_server": "Eaten By The Server",
 
   "item.eaten_by_the_server.edible_server": "Edible Server",

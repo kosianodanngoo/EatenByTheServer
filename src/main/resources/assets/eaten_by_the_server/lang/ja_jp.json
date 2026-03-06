@@ -9,6 +9,8 @@
   "death.attack.eaten_by_the_server.eating.player": "%sは%sと戦っている間にサーバーに食べられた。",
   "death.attack.eaten_by_the_server.eating.item": "%sは%sと戦っている間にサーバーに食べられた。",
 
+  "entity.eaten_by_the_server.system_interface": "システムインターフェース",
+
   "itemGroup.tab.eaten_by_the_server": "サーバーが食べよう",
 
   "item.eaten_by_the_server.edible_server": "食用サーバー",
