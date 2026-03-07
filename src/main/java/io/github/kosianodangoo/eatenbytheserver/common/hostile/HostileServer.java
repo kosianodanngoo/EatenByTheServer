@@ -182,7 +182,7 @@ public class HostileServer {
     }
 
     public void tick() {
-        if (!(level instanceof ServerLevel serverLevel)) {
+        if (!(level instanceof ServerLevel serverLevel) || removed) {
             return;
         }
         if (dead) {
