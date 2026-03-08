@@ -16,7 +16,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class SystemInterface extends Monster implements IHostileServerSrave {
+public class SystemInterface extends Monster implements IHostileServerSlave {
     public HostileServer hostileServer;
     public int attackCooltime = 0;
 

@@ -2,7 +2,7 @@ package io.github.kosianodangoo.eatenbytheserver.common.hostile;
 
 
 import io.github.kosianodangoo.eatenbytheserver.Config;
-import io.github.kosianodangoo.eatenbytheserver.common.entity.IHostileServerSrave;
+import io.github.kosianodangoo.eatenbytheserver.common.entity.IHostileServerSlave;
 import io.github.kosianodangoo.eatenbytheserver.common.entity.SystemInterface;
 import io.github.kosianodangoo.eatenbytheserver.common.hostile.skill.AbstractSkill;
 import io.github.kosianodangoo.eatenbytheserver.common.hostile.skill.BurningSkill;
@@ -38,7 +38,7 @@ public class HostileServer {
     public List<ServerProjectile> projectilesToRemove = new ArrayList<>();
     public List<ServerProjectile> projectilesToAdd = new ArrayList<>();
     public ServerBossEvent bossEvent;
-    public Predicate<Entity> ignorePredicate = (entity -> entity == null || entity instanceof IHostileServerSrave);
+    public Predicate<Entity> ignorePredicate = (entity -> entity == null || entity instanceof IHostileServerSlave);
     public SystemInterface systemInterface;
     public boolean shouldEatCreative = Config.SHOULD_EAT_CREATIVE.get();
     public Level level;
