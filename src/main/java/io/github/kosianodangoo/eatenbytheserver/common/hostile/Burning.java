@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
@@ -32,11 +33,13 @@ public class Burning extends ServerProjectile {
             this.serverLevel.getEntities(EntityTypeTest.forClass(LivingEntity.class), AABB.ofSize(pos, 4, 4, 4), (livingEntity) -> !hostileServer.ignorePredicate.test(livingEntity)).forEach((livingEntity -> {
                 float oldHealth = livingEntity.getHealth();
                 livingEntity.setHealth(oldHealth - livingEntity.getMaxHealth() / 20);
+                DamageSource damageSource = EBTSDamageTypes.eating(level);
                 if (oldHealth > 0 && livingEntity.getHealth() <= 0) {
-                    livingEntity.die(livingEntity.damageSources().inFire());
+                    livingEntity.getCombatTracker().recordDamage(damageSource, 1);
+                    livingEntity.die(damageSource);
                 }
                 livingEntity.hurt(livingEntity.damageSources().inFire(), 5);
-                livingEntity.hurt(EBTSDamageTypes.eating(serverLevel), 0);
+                livingEntity.hurt(damageSource, 0);
             }));
         }
     }
